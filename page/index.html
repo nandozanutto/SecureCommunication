@@ -51,7 +51,32 @@
 
         Portanto para encriptografar e descriptografar o comunicador deve usar sua chave inteira.
     
-      <h3>Comunicação</h3>
+      <h3>Comunicação</h3> 
+
+      <h4>Servidor</h4> 
+        
+        Primeiro define-se as variáveis HOST e PORT, o endereço IP e a porta onde escutar a conexão, respectivamente. Foi usado o número de Loopback como Host, pois executamos o cliente e o servidor em apenas 1 máquina. 
+        
+        O comando 'socket.socket()' cria um objeto socket. Foi utilizado with-statement, então não há necessidade de fechar o socket com 's.close()'.
+        O comando socket.AF_INET em 'socket.socket(socket.AF_INET, socket.SOCK_STREAM)' especifica a abertura do socket para endereços IPv4. O comando socket.SOCK_STREAM especifica o uso do protocolo TCP. 
+        O comando 'bind()' é usado para associar o socket ao host e port escolhidos. O comando listen() coloca o servidor para 'ouvir' possiveis conexões. O comando accept() aceita uma conexão e retorna um novo objeto socket e o endereço de quem conectou ao servidor. 
+        A variável 'conn' guarda o objeto que o servidor irá utilizar para comunicar com o cliente. 
+        
+        O servidor é colocado em loop enquanto o cliente não finaliza a conexão. O comando conn.recv() lê dados enviados pelo cliente. O comando conn.sendall() retorna uma mensagem para o cliente. 
+        
+        <h4>Cliente</h4> 
+        
+        O estabelecimento de comunicação é muito semelhante. Define-se os valores Host e Port como o Ip do servidor e a porta utilizada pelo servidor, respectivamente. 
+        
+        É aberta a conexão com socket.socket(socket.AF_INET, socket.SOCK_STREAM). É solicitada uma conexão com o servidor no comando s.connect((HOST, PORT)). A variável 's' guarda o socket utilizado para comunicar com o servidor. Após isso, os comandos 's.sendall()' e 's.recv()' são utilizados para enviar e receber dados do servidor, respectivamente. 
+        
+        
+        <h3>Comunicando com segurança</h3> 
+        
+        O valor da base (igual a 5) é conhecido pelo cliente e servidor antes da conexão acontecer. O valor da variável 'modulo' é defido pelo cliente aleatoriamente. Cria-se a chave parcial do cliente. É enviado o valor de 'modulo' para o servidor, que cria sua chave parcial e a retorna para o cliente. O cliente então envia sua chave parcial. <br><br>
+        
+        Neste momento, o cliente e o servidor receberam sua chave parcial estrangeira. Então estes criam suas chaves inteiras. 
+        Após isso, é digitada uma mensagem pelo usuário do cliente que é transformada em uma mensagem criptografada utilizando a chave inteira. A mensagem transformada é enviada ao servidor. Para assegurar ao cliente que sua mensagem foi descriptografada corretamente, o servidor descriptografa a mensagem e a lê, criptografa de novo e envia a mensagem transformada. O cliente então descriptografa e checa se a mensagem recebida é igual à mensagem enviada. 
     </div>
 
   </div>

@@ -19,7 +19,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break#cliente cancelou conexao
             
-            modulo = int.from_bytes(data, "little")
+            modulo = int.from_bytes(data, "little")#recebe o módulo recebido do cliente e transforma em int
             me = DH.Communicator(5, modulo, b)
             partial = me.generatePartialKey()
             conn.sendall(partial.to_bytes(5, 'little'))

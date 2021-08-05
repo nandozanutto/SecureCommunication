@@ -31,7 +31,7 @@ class Communicator(object):
     
     def decrypt_message(self, encrypted_message):
         key = self.fullKey
-        original = decrypt(str(key), encrypted_message)
+        original = decrypt(str(key), encrypted_message).decode('utf8')
         return original
 
 

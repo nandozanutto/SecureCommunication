@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <h2>Estabelecimento de Chave Secreta com Diffie-Hellman</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>Relatório</h2>
+      <h5> 6 de agosto de 2021</h5>
+      <img src="images/exemploChave.png" alt="exemplo" style="display: block; padding: 30px;">
+      <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
+      <p>Para representar as duas pontas da conexão foi criada uma classe "Communicator". 
+        Esta classe tem como métodos "__init__", "generatePartialKey", "generateFullKey", 
+        "encrypt_message" e decrypt_message" e como atributos "base", "module", "privateKey" 
+        e "fullKey". <br><br>
+
+        __init__: Para criar um objeto comunicador é necessário fornecer as duas chaves públicas, 
+        aqui chamadas de 'base' e 'módulo', como no exemplo os números 197 e 151 respectivamente. 
+        Um terceiro valor particular ao comunicador deve ser fornecido, a chave privada, no exemplo 
+        o número 199. Com estes valores fornecidos o comunicador está pronto para criar sua chave 
+        parcial. <br><br>
+        
+        generatePartialKey: Para calcular a chave parcial, eleva-se a base à chave privada e é 
+        feito o módulo valor 'modulo' do resultado. Ou seja:<br>
+                -> partialKey = self.base**self.privateKey<br>
+                -> partialKey = partialKey%self.module<br><br>
+                
+        generateFullKey: Para calcular a chave inteira, é necessária a chave parcial do outro
+         comunicador, chamada aqui de partialKeyR (R de received). Eleva-se a partialKeyR à chave 
+         privada e é feito o módulo valor 'modulo' do resultado. O código é o mesmo do método 
+         generatePartialKey, porém com a chave parcial estrangeira.<br><br>
+        </p>
+
+        <h3>Por que os comunicadores chegam à mesma chave inteira?</h3>
+
+        A troca de chave de Diffie-Hellman baseia-se na equação abaixo. Observe que as expressões em parênteses são chaves parciais recebidas. <br>
+        <img src="images/equacao.png" alt="equação" style="display: block; padding: 30px;">
+
+      <h3>Criptografia</h3>
+
+        Foi utilizada a biblioteca simplecrypt, cujo comportamento está resumido abaixo.
+        <img src="images/biblioteca.png" alt="simplecrypt" style="display: block; padding: 30px;">
+
+        Portanto para encriptografar e descriptografar o comunicador deve usar sua chave inteira.
+    
+      <h3>Comunicação</h3>
+    </div>
+
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>

@@ -1,7 +1,5 @@
-
-from logging import exception
+#!/usr/bin/env python3
 from scapy.all import *
-import codecs
 
 def process_packet(pkt):
     if pkt.haslayer(TCP):

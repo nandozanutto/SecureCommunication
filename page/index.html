@@ -14,7 +14,7 @@
   <div class="leftcolumn">
     <div class="card">
       <h2>Relatório</h2>
-      <h5> 6 de agosto de 2021</h5>
+      <h5> 6 de agosto de 2021, Fernando Zanutto e Gustavo Valente</h5>
       <img src="images/exemploChave.png" alt="exemplo" style="display: block; padding: 30px;">
       <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
       <p>Para representar as duas pontas da conexão foi criada uma classe "Communicator". 
@@ -77,31 +77,37 @@
         
         Neste momento, o cliente e o servidor receberam sua chave parcial estrangeira. Então estes criam suas chaves inteiras. 
         Após isso, é digitada uma mensagem pelo usuário do cliente que é transformada em uma mensagem criptografada utilizando a chave inteira. A mensagem transformada é enviada ao servidor. Para assegurar ao cliente que sua mensagem foi descriptografada corretamente, o servidor descriptografa a mensagem e a lê, criptografa de novo e envia a mensagem transformada. O cliente então descriptografa e checa se a mensagem recebida é igual à mensagem enviada. 
-    </div>
+    
+        <h3>Testes de execução</h3>
+        
+        Os testes abaixo comparam uma comunicação criptografada com uma comunicação normal. Do lado esquerdo o cliente, do lado direito o servidor. E abaixo está a leitura dos pacotes feita por um usuário malicioso. 
+        <h4>Teste 1</h4>
+        <img src="./images/teste1.png" style="width: 100%;" alt="teste1">
+        <img src="./images/teste1sniff.png" style="display: block; width: 70%;" alt="sniff1">
+        Neste teste o usuário faz uma comunicação com criptografia. Observe que o usuário malicioso só tem acesso à mensagem criptografada e as chaves parciais. Porém, sem a chave inteira não é possível recuperar
+        a mensagem original. No fim da comunicação é feito um teste para verificar a integridade da criptografia, utilizando chaves aleatórias. Observe que nenhuma delas conseguiu descriptografar a mensagem.
+        <h4>Teste 2</h4>
+        <img src="./images/teste2.png" style="width: 100%;" alt="teste1">
+        <img src="./images/teste2sniff.png" style="display: block; width: 70%;" alt="sniff1">
+        Neste teste o usuário opta por uma comunicação sem criptografia. Observe que a mensagem pode ser facilmente interceptada por um usuário malicioso, já que a mensagem original é passada pelo socket.
+      </div>
 
   </div>
   <div class="rightcolumn">
     <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h2>Arquivos fonte</h2>
+      <a href="./codigosFonte/client.py.txt">Client</a>
+      <a href="./codigosFonte/server.py.txt">Server</a>
+      <a href="./codigosFonte/DH.py.txt">Diffie-Hellman</a>
+      <a href="./codigosFonte/sniff.py.txt">Sniff</a>
+
+
     </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div>
-    </div>
-    <div class="card">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
-    </div>
+
   </div>
 </div>
 
-<div class="footer">
-  <h2>Footer</h2>
-</div>
+
 
 </body>
 </html>

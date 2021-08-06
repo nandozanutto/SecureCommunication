@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from random import randint
 from simplecrypt import encrypt, decrypt
 

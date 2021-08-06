@@ -1,0 +1,31 @@
+Server - INFO - Server is starting on 127.0.0.1 and port 65432
+Server - INFO - Generating a random number: 32277
+Server - INFO - Initializing the socket connection
+Server - INFO - Waiting for a connection
+Client - INFO - Server is starting on 127.0.0.1 and port 65432
+Client - INFO - Defining the module of the client: 293
+Client - INFO - Defining the secret key: 15234
+Client - INFO - Defining the partial key: 216
+Client - INFO - Communcation with cryptography
+Client - INFO - Initializing the socket connection
+Server - INFO - <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 65432), raddr=('127.0.0.1', 49230)> connected
+Server - INFO - Waiting for clientm message
+Server - INFO - Receiving the message indicanting to server if is to use crypt or not
+Server - INFO - Receiving the module from client
+Client - INFO - Sending the module to server
+Server - INFO - Generating a partial key: 32
+Server - INFO - Sending the partial key to client
+Client - INFO - Receiving the server partial key: 32
+Client - INFO - Sending the partial key to server: 216
+Server - INFO - Receiving the client partial key: 216
+Client - INFO - Creating the full key: 199
+Client - INFO - Sending a menssagem to server: test
+Client - INFO - Encrypting the message and sending to server: b'sc\x00\x02\x9cV\xe3cxM\xd9\xa8RP\xfe\xb9\xaf\xcf\x83\xd1?\xa6\x99\x14.\t\xd0\x0eel\xc5\xd2\xd0\xc0\xcbJ\x1d\x91\xdc\xfaS\xb5D\x8b\xd6T\xfdR\xd4@D\xe1u\x84\xab\xf5\xb09\xaf\xcc\x7fV\xe1d\xd7\x8c(\xa0\x01\xfdV\xac'
+Server - INFO - Message received
+Server - INFO - Generating full key: 199
+Server - INFO - Decrypting the message: 199
+Server - INFO - Message decrypted: test
+Server - INFO - Encrypting the message
+Server - INFO - Sending the encrypted message: b'sc\x00\x02\xab\xbc3m\xed\xcf\xf6~\xe4Uj80\xfa\x8a\x9ah\xa6\xa2\xc8\xc5\xf9\x11J\xa9yGFT\x0c\x1c\xe4\\\x11\xf3\xb9\xa9%\x0e8u\xd6K\x10c\x0c!^lG\xa4\xbc+\x19\xd2\x04(\xfa)\x12\t\x88\xabQ\xf0\x1e\xa27'
+Client - INFO - Decrypt the answer from the server: test
+Server - INFO - Waiting for clientm message
